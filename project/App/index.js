@@ -180,7 +180,7 @@ module.exports = React.createClass({
     mixins: [TimerMixin],
     getInitialState () {
         return {
-            showNavBar: true,
+            showNavBar: false,
             modalShow: false,
             modalContent: null,
             modalBackgroundColor: null,

@@ -18,7 +18,10 @@ module.exports = React.createClass({
     render () {
         return (
             <View style={styles.container}>
-                <Text>hello world</Text>
+                <View style={styles.top1}>
+                </View>
+                <View style={styles.bottom1}>
+                </View>
             </View>
         );
     },
@@ -27,8 +30,13 @@ module.exports = React.createClass({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#EEEEEE',
-        justifyContent: 'center',
-        alignItems: 'center',
+    },
+    top1: {
+        flex: 1,
+        backgroundColor: 'red',
+    },
+    bottom1: {
+        flex: 1,
+        backgroundColor: 'blue',
     },
 });
