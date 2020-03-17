@@ -1,0 +1,8 @@
+{
+  "name": "App",
+  "dependencies": {
+    "echarts-for-react": "^1.1.6",
+    "react-native-swiper": "^1.5.4",
+    "react-native-tab-navigator": "^0.3.3"
+  }
+}

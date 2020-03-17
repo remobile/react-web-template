@@ -1,0 +1,8 @@
+#!/bin/bash
+
+path="../project/node_modules"
+
+rm -f ${path}/react-art/.babelrc
+vim -e -s ${path}/react-art/lib/ReactART.js -c ":%s#react/lib/#react-dom/lib/#" -c ":wq"
+vim -e -s ${path}/react-pullrefresh/lib/index.js -c ":g/onMouse/d" -c ":wq"
+vim -e -s ${path}/react-web/local-cli/server.js -c ":%s#hot:.*#hot: true, proxy: webpackConfig.proxy,#" -c ":wq"

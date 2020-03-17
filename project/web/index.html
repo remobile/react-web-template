@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="assets/favicon.ico">
+    <title>抗击疫情 人人有责</title>
+    <script type="text/javascript">
+        function js_getDPI() {
+            var arrDPI = new Array;
+            if (window.screen.deviceXDPI) {
+                arrDPI[0] = window.screen.deviceXDPI;
+                arrDPI[1] = window.screen.deviceYDPI;
+            }
+            else {
+                var tmpNode = document.createElement("DIV");
+                tmpNode.style.cssText = "width:1in;height:1in;position:absolute;left:0px;top:0px;z-index:99;visibility:hidden";
+                document.body.appendChild(tmpNode);
+                arrDPI[0] = parseInt(tmpNode.offsetWidth);
+                arrDPI[1] = parseInt(tmpNode.offsetHeight);
+                tmpNode.parentNode.removeChild(tmpNode);
+            }
+            return arrDPI;
+        }
+        function __load(url, needRedirect) {
+            var dpi = js_getDPI();
+            var screenSize=Math.ceil(Math.sqrt(Math.pow(window.innerWidth/dpi[0], 2)+Math.pow(window.innerHeight/dpi[1], 2)));
+            if(needRedirect && screenSize>10){
+                window.location.href = url+'client?useragent=ipod';
+            } else {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'bundle.js';
+                document.body.appendChild(script);
+                window.addEventListener('resize', function () {
+                    if(['INPUT', 'input', 'TEXTAREA', 'textarea'].indexOf(document.activeElement.tagName) !== -1){
+                        document.activeElement.scrollIntoView({behavior: "smooth"})
+                    }
+                });
+            }
+        }
+        window.onload=function(){
+            __load('http://localhost:3003/', false);
+        }
+    </script>
+    <style>
+    html, body { margin: 0; padding: 0; display: flex; justify-content: center; }
+    #app {
+        width: 480px;
+        height: 100%;
+        position: absolute;
+    }
+    @media only screen and (max-width: 480px) {
+        #app {
+            width:100%;
+            height: 100%;
+            position: absolute;
+        }
+    }
+    #__webpack_splash {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    ::-webkit-input-placeholder {
+        color: #BEBEBE;
+    }
+    ::-moz-input-placeholder {
+        color: #BEBEBE;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="__webpack_splash">
+            <img src="assets/img/logo.png" width="30px" height="30px" />
+            首次加载可能需要一点时间, 请稍后...
+        </div>
+    </div>
+</body>
+</html>
